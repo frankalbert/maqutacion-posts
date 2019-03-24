@@ -12,7 +12,7 @@
 <title>Maquetación de Posts</title>
 
 <style>
-	.contenedor__cuerpo__making{
+	.contenedor__cuerpo{
 		float: left;
 		width: 100%;
 		background: #c7c7c7;
@@ -29,14 +29,14 @@
 		border: 1px solid #c7c7c7;
 		padding: 0 15px 15px;
 	}
-    
+
 </style>
 
 </head>
 
 <body>
 
-		<div class="contenedor__cuerpo__making">
+		<div class="contenedor__cuerpo">
         	
             <div class="container">
         		<h1>Posts</h1>
