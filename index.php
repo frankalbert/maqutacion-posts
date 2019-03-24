@@ -25,66 +25,103 @@
 		padding: 15px;
 	}
 	
+	.contenedor__fila__posts{
+		float: left;
+		width: 100%;
+		margin: 15px 0;
+	}
+	
 	.contenedor__post__individual{
 		border: 1px solid #c7c7c7;
 		padding: 0 15px 15px;
 	}
-
+	
+	.post__interior{
+		border-top: 1px solid #c7c7c7;
+	}
+	
 </style>
+
+<?php 
+
+	$totalPosts = 13; 
+	$colOcho = 4; 
+	$colQuinta = 5; 
+	$colSexta = 6; 
+	
+?>
 
 </head>
 
 <body>
 
-		<div class="contenedor__cuerpo">
+	<div class="contenedor__cuerpo">
         	
-            <div class="container">
-        		<h1>Posts</h1>
-                	
-                <div class="row">
-                
-	                <div class="contenedor__listado__posts">
-                		
-                        <?php $totalPosts = 11; $colOcho = 4; $colQuinta = 5; $colSexta = 6; for($i = 1; $i <= $totalPosts; $i++) { ?>
-                        	
-                            <?php if($i != $colSexta) { ?>
-                            	<div class="contenedor__post__individual <?php if($i == $colOcho) { $colOcho += 6; ?> col-md-8 <?php }else { ?> col-md-4 <?php } ?>"> 
-                            <?php } ?>    
-									<?php if(($i == $colQuinta) || ($i == $colSexta)) { ?>
-                                        <div class="row" <?php if($i == $colSexta) { ?> style=" border-top: 1px solid #c7c7c7;" <?php } ?>>
-                                            <div class="col-md-12">
-                                    <?php } ?>    
-                                            <h3>T&iacute;tulo del Post <?php echo $i;?></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, pariatur porro dolores incidunt officiis placeat reiciendis itaque eum atque hic cum magnam doloribus dignissimos iste sunt doloremque beatae laudantium aliquam!</p>
-                                    
-                                    <?php if(($i == $colQuinta) || ($i == $colSexta)) { ?>
-                                    	 	</div>
-                                        </div>
-                                    <?php } ?>
-                                    
-                             <?php if($i != $colQuinta) { ?>
-                                    
-                            	</div>
-                                
-                             <?php } ?>
-                              
-                        	<?php if($i == $colQuinta){ $colQuinta+= 6;}else if($i == $colSexta){ $colSexta+=6;}; 
+		<div class="container">
+			<h1>Posts</h1>
+				
+			<div class="row">
+			
+				<div class="contenedor__listado__posts">
+					
+					<?php for($i = 1; $i <= $totalPosts; $i++) { ?>
+						
+						<?php if(($i % 6) == 1) { ?>
 							
-						} ?>
-                        
-                        <?php if(($totalPosts % 6) == 5) { ?>
-                        
-                        	</div>
-                            
+							<div class="contenedor__fila__posts">
+						
+						<?php } ?>
+						
+								<?php if($i != $colSexta) { ?>
+									<div class="contenedor__post__individual <?php if($i == $colOcho) { $colOcho += 6; ?> col-md-8 <?php }else { ?> col-md-4 <?php } ?>"> 
+								<?php } ?>    
+										<?php if(($i == $colQuinta) || ($i == $colSexta)) { ?>
+											<div class="row <?php if($i == $colSexta) { ?> post__interior <?php } ?>">
+												<div class="col-md-12">
+										<?php } ?>    
+												<h3>T&iacute;tulo del Post <?php echo $i;?></h3>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, pariatur porro dolores incidunt officiis placeat reiciendis itaque eum atque hic cum magnam doloribus dignissimos iste sunt doloremque beatae laudantium aliquam!</p>
+										
+										<?php if(($i == $colQuinta) || ($i == $colSexta)) { ?>
+												</div>
+											</div>
+										<?php } ?>
+										
+									<?php if($i != $colQuinta) { ?>
+										
+									</div>
+									
+									<?php } ?>
+						
+						<?php if(($i % 6) == 0) { // este cierre del div es para cerrar la clase contenedor__fila__posts ?>
+							
+							</div>
+							
+						<?php } ?>
+							
+						<?php if($i == $colQuinta){ $colQuinta+= 6;}else if($i == $colSexta){ $colSexta+=6;};
+						
+					} ?>
+					
+					<?php if((($i-1) % 6) == 5) { // este cierre del div es para cerrar la clase contenedor__post__individual que pudo quedar abierta si los posts son múltiplos de 5 ?>
+					
+						</div>
+						
 					<?php } ?>
-                    
-                	</div>
-                    
-                </div>
-                                    
-            </div>
-        </div>
+					
+					<?php if((($i-1) % 6) != 0) { // este cierre del div es para cerrar la clase contenedor__fila__posts ?>
+					
+						</div>
+						
+					<?php } ?>
+				
+				</div>
+				
+			</div>
+								
+		</div>
 
+	</div>
 
 <!-- JQuery -->
 <script type="text/javascript" src="/js/jquery.js"></script>
