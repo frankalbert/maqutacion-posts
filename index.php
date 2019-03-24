@@ -45,7 +45,7 @@
                 
 	                <div class="contenedor__listado__posts">
                 		
-                        <?php $totalPosts = 10; $colOcho = 4; $colQuinta = 5; $colSexta = 6; for($i = 1; $i <= $totalPosts; $i++) { ?>
+                        <?php $totalPosts = 11; $colOcho = 4; $colQuinta = 5; $colSexta = 6; for($i = 1; $i <= $totalPosts; $i++) { ?>
                         	
                             <?php if($i != $colSexta) { ?>
                             	<div class="contenedor__post__individual <?php if($i == $colOcho) { $colOcho += 6; ?> col-md-8 <?php }else { ?> col-md-4 <?php } ?>"> 
@@ -76,14 +76,15 @@
                         
                         	</div>
                             
-                        <?php } ?>
-                        
-					</div>
-                                    
+					<?php } ?>
+                    
+                	</div>
+                    
                 </div>
-        	</div>
+                                    
+            </div>
         </div>
-            
+
 
 <!-- JQuery -->
 <script type="text/javascript" src="/js/jquery.js"></script>
